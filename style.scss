@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$cor-de-fundo: #5d3800;
+$cor-do-rosto: #ffcd00;
+$-cor-da-boca: #b57700;
+$cor-do-olho: #ffffff;
+$cor-da-iris: #000000;
+
+body {
+  background-color: $cor-de-fundo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.rosto {
+  width: 300px;
+  height: 300px;
+  background-color: $cor-do-rosto;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: " ";
+    width: 150px;
+    height: 70px;
+    background-color: $-cor-da-boca;
+    border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 70px;
+    position: absolute;
+    top: 180px;
+    transition: 0.5s;
+  }
+
+  &:hover::before {
+    height: 20px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    top: 210px;
+  }
+
+  .olhos {
+    top: -40px;
+    height: 50vh;
+    margin-bottom: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .olho {
+      width: 80px;
+      height: 80px;
+      background-color: $cor-do-olho;
+      margin: 0 15px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      transition: 0.5s;
+
+      &::before {
+        content: "";
+        width: 40px;
+        height: 40px;
+        background-color: $cor-da-iris;
+        border-radius: 50%;
+        position: absolute;
+        top: 90%;
+        left: 90%;
+        transform: translate(-50px, -50px);
+      }
+    }
+  }
+
+  &:hover .olho {
+    height: 10px;
+    background-color: $cor-da-iris;
+    border-radius: 0;
+  }
+}
+
+p {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 2rem;
+  transform: rotate(-20deg);
+  margin-bottom: 10rem;
+  position: relative;
+  visibility: hidden;
+
+  &.rosto:hover {
+    visibility: visible;
+  }
+}
