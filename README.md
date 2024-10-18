@@ -1,2 +1,2 @@
 # Emoji animado
-Utilizando apenas HTML e CSS 😄
+Utilizando apenas HTML e CSS/SASS 😄
